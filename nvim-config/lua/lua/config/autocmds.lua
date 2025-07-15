@@ -1,0 +1,12 @@
+-- local function changeHL()
+--   -- local hl = vim.api.nvim_set_hl
+--   -- hl(0, "WinSeparator", { fg = "#7aa2f7", bg = "NONE" })
+--   -- vim.api.nvim_set_hl(0, "SnacksDashboardNormal", { bg = "NONE" })
+--   -- hl(0, "WhichKeyNormal", { bg = "NONE" })
+--   -- hl(0, "WhichKeyBorder", { fg = "#7aa2f7" })
+--   -- hl(0, "SnacksPickerInputBorder", { fg = "NONE" })
+-- end
+--
+-- vim.api.nvim_create_autocmd("UIEnter", {
+--   callback = changeHL,
+-- })

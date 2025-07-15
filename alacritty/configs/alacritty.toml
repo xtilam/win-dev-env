@@ -1,0 +1,8 @@
+[general]
+import = ["keybindings.toml", "opts.toml"]
+
+[terminal]
+shell = "nu.exe"
+
+[font]
+normal = { family = "Cascadia Code NF", style = "Regular" }

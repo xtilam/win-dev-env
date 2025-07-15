@@ -1,0 +1,26 @@
+{
+  "name": "nvim-config",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "dev": "tsx ./dev/cli/dev.ts",
+    "repl": "tsx --watch ./dev/cli/repl.ts"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/node": "^22.13.9",
+    "@types/terminal-kit": "^2.5.7",
+    "pretty-repl": "^4.0.1",
+    "tsx": "^4.19.3",
+    "typescript": "^5.8.2",
+    "chokidar": "^4.0.3",
+    "@dinz41/utils": "1.1.3-beta",
+    "neovim": "^5.3.0",
+    "pid-port": "^1.0.2"
+  },
+  "dependencies": {}
+}

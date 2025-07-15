@@ -1,0 +1,19 @@
+{
+  "name": "wezterm",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "setup": "node dev/setup.mjs",
+    "dev": "nodemon --exec wezterm --watch config --ext .lua"
+  },
+  "type": "module",
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "@dinz41/utils": "1.1.3-beta",
+    "@types/node": "^24.0.3",
+    "chokidar": "^4.0.3"
+  }
+}

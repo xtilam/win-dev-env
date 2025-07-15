@@ -1,0 +1,11 @@
+{
+  "compilerOptions": {
+    "strict": false,
+    "module": "NodeNext",
+    "moduleResolution": "nodenext",
+    "target": "ESNext",
+    "allowJs": true,
+    "checkJs": false
+  },
+  "include": ["./dev/**/*.ts", "./config.ts", "./default-config.ts"]
+}

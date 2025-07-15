@@ -1,0 +1,12 @@
+{
+  "compilerOptions": {
+    "moduleResolution": "node",
+    
+    "strict": false,
+    "esModuleInterop": true,
+    "allowJs": true
+  },
+  "include": [
+    "./dev/**/*.js"
+, "dev/dev.ts"  ]
+}
