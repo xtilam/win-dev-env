@@ -40,3 +40,11 @@ function table.clone(list)
   end
   return newList
 end
+
+function table.keys(list)
+  local keys = table.new({})
+  for k, _ in pairs(list) do
+    keys[#keys + 1] = k
+  end
+  return keys
+end

@@ -25,6 +25,7 @@ return {
     require("nvim-treesitter.install").compilers = { "clang", "gcc" }
     require("nvim-treesitter.configs").setup({
       ensure_installed = {
+        "nim",
         "rust",
         "ron",
         "nu",
@@ -58,6 +59,7 @@ return {
         "yaml",
         "cpp",
         "cmake",
+        "zig",
       },
       -- sync_install = true,
       -- highlight = {

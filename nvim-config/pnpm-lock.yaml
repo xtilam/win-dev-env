@@ -11,9 +11,6 @@ importers:
       '@dinz41/utils':
         specifier: 1.1.3-beta
         version: 1.1.3-beta
-      '@types/node':
-        specifier: ^22.13.9
-        version: 22.14.1
       '@types/terminal-kit':
         specifier: ^2.5.7
         version: 2.5.7
@@ -212,9 +209,6 @@ packages:
 
   '@types/nextgen-events@1.1.4':
     resolution: {integrity: sha512-YczHp+887i3MpHUOCOztk7y10SklNZ3aQlToKnu0LON0ZdFpgwq8POtnATAoFz8V1IxyR6d8pp8ZyYkUIy26Cw==}
-
-  '@types/node@22.14.1':
-    resolution: {integrity: sha512-u0HuPQwe/dHrItgHHpmw3N2fYCR6x4ivMNbPHRkBVP4CvN+kiRrKHWk3i8tXiO/joPwXLMYvF9TTF0eqgHIuOw==}
 
   '@types/terminal-kit@2.5.7':
     resolution: {integrity: sha512-IpbCBFSb3OqCEZBZlk368tGftqss88eNQaJdD9msEShRbksEiVahEqroONi60ppUt9/arLM6IDrHMx9jpzzCOw==}
@@ -455,9 +449,6 @@ packages:
     engines: {node: '>=14.17'}
     hasBin: true
 
-  undici-types@6.21.0:
-    resolution: {integrity: sha512-iwDZqg0QAGrg9Rav5H4n0M64c3mkR59cJ6wQp+7C4nI0gsmExaedaYLNO44eT4AtBBwjbTiGPMlt2Md0T9H9JQ==}
-
   util-deprecate@1.0.2:
     resolution: {integrity: sha512-EPD5q1uXyFxJpCrLnCc1nHnq3gOa6DZBocAIiI2TaSCA7VCJ1UJDMagCzIkXNsUYfD1daK//LTEQ8xiIbrHtcw==}
 
@@ -564,10 +555,6 @@ snapshots:
   '@msgpack/msgpack@2.8.0': {}
 
   '@types/nextgen-events@1.1.4': {}
-
-  '@types/node@22.14.1':
-    dependencies:
-      undici-types: 6.21.0
 
   '@types/terminal-kit@2.5.7':
     dependencies:
@@ -816,8 +803,6 @@ snapshots:
       fsevents: 2.3.3
 
   typescript@5.8.3: {}
-
-  undici-types@6.21.0: {}
 
   util-deprecate@1.0.2: {}
 

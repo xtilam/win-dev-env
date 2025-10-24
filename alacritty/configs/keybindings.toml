@@ -1,5 +1,0 @@
-[keyboard]
-bindings = [
-  # { key = "Space", mods = "Control", chars = "\u0120" },
-  { key = "Slash", mods = "Control", chars = "\u001f" } 
-]

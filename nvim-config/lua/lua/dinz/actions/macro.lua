@@ -1,42 +1,43 @@
-local dinz = require("dinz.dinz")
-local oldMacro = ""
-dinz.addAction({
-  name = "testMacro",
-  desc = "Test Macro",
-  callback = function()
-    vim.ui.input({
-      backdrop = false,
-      content = "123",
-      position = "float",
-      border = "rounded",
-      title_pos = "center",
-      height = 1,
-      width = 0.8,
-      relative = "editor",
-      win = {
-        text = oldMacro,
-      },
-    }, function(macro)
-      if macro == nil then
-        return
-      end
-      oldMacro = macro
-      local oldOMacro = vim.fn.getreg("o")
-      local parsed = load('return "' .. macro .. '"')()
-      vim.fn.setreg("o", parsed)
-      vim.cmd("normal! @o")
-      vim.fn.setreg("o", oldOMacro)
-    end)
-  end,
-})
--- DinzActions.testMacro = function(macro)
---   local oldMacro = vim.fn.getreg("o")
---   old_test_macro = macro
---   vim.fn.setreg("o", macro)
---   vim.cmd("normal! @o")
---   vim.fn.setreg("o", oldMacro)
--- end
+-- local dinz = require("dinz.dinz")
+-- local oldMacro = ""
 --
--- DinzActions.showMacro = function(macro)
---   vim.notify(vim.inspect(vim.fn.getreg(macro)))
--- end
+-- dinz.addAction({
+--   name = "testMacro",
+--   desc = "Test Macro",
+--   callback = function()
+--     vim.ui.input({
+--       backdrop = false,
+--       content = "123",
+--       position = "float",
+--       border = "rounded",
+--       title_pos = "center",
+--       height = 1,
+--       width = 0.8,
+--       relative = "editor",
+--       win = {
+--         text = oldMacro,
+--       },
+--     }, function(macro)
+--       if macro == nil then
+--         return
+--       end
+--       oldMacro = macro
+--       local oldOMacro = vim.fn.getreg("o")
+--       local parsed = load('return "' .. macro .. '"')()
+--       vim.fn.setreg("o", parsed)
+--       vim.cmd("normal! @o")
+--       vim.fn.setreg("o", oldOMacro)
+--     end)
+--   end,
+-- })
+-- -- DinzActions.testMacro = function(macro)
+-- --   local oldMacro = vim.fn.getreg("o")
+-- --   old_test_macro = macro
+-- --   vim.fn.setreg("o", macro)
+-- --   vim.cmd("normal! @o")
+-- --   vim.fn.setreg("o", oldMacro)
+-- -- end
+-- --
+-- -- DinzActions.showMacro = function(macro)
+-- --   vim.notify(vim.inspect(vim.fn.getreg(macro)))
+-- -- end

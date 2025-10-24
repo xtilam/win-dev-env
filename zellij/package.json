@@ -3,11 +3,21 @@
   "version": "1.0.0",
   "description": "",
   "main": "init.js",
+  "type": "module",
   "scripts": {
-    "setup": "node dev/setup.mjs"
+    "setup": "tsx dev/setup.ts",
+    "setup-watch": "tsx --watch dev/setup.ts"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "type": "commonjs"
+  "dependencies": {
+    "axios": "^1.12.2",
+    "commander": "^14.0.1",
+    "inquirer": "^12.10.0"
+  },
+  "devDependencies": {
+    "@types/node": "^24.9.1",
+    "tsx": "^4.20.6"
+  }
 }

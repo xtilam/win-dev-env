@@ -12,7 +12,6 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "@types/node": "^22.13.9",
     "@types/terminal-kit": "^2.5.7",
     "pretty-repl": "^4.0.1",
     "tsx": "^4.19.3",

@@ -1,0 +1,3 @@
+#!/bin/sh
+echo "Launching bash editor..."
+nvim.exe "T:/home/dinzll/hello/"

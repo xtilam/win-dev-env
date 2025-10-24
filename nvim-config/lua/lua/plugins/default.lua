@@ -1,4 +1,23 @@
-if true then return {} end
+if true then
+  return {
+    { "godlygeek/tabular" },
+    { "alaviss/nim.nvim" },
+    { "lawrence-laz/neotest-zig" },
+    { "ahmedkhalf/project.nvim" },
+    {
+      "nvim-neotest/neotest",
+      optional = true,
+      dependencies = {
+        "lawrence-laz/neotest-zig",
+      },
+      opts = {
+        adapters = {
+          ["neotest-zig"] = {},
+        },
+      },
+    },
+  }
+end
 
 return {
   {
@@ -17,11 +36,11 @@ return {
   {
     "nvim-telescope/telescope.nvim",
     keys = {
-      -- add a keymap to browse plugin files
-      -- stylua: ignore
       {
         "<leader>fp",
-        function() require("telescope.builtin").find_files({ cwd = require("lazy.core.config").options.root }) end,
+        function()
+          require("telescope.builtin").find_files({ cwd = require("lazy.core.config").options.root })
+        end,
         desc = "Find Plugin File",
       },
     },

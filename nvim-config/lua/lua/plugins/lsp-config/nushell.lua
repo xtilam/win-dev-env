@@ -1,3 +1,3 @@
 return function(o)
-    o.servers.nushell = {}
-end;
+  o.servers.nushell = {}
+end

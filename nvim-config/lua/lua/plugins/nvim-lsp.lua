@@ -9,6 +9,9 @@ require("plugins.lsp-config.rust")(opts)
 require("plugins.lsp-config.tailwindcss")(opts)
 require("plugins.lsp-config.ts")(opts)
 require("plugins.lsp-config.slint")(opts)
+require("plugins.lsp-config.zig")(opts)
+require("plugins.lsp-config.python")(opts)
+
 return {
   "neovim/nvim-lspconfig",
   opts = opts,

@@ -36,7 +36,7 @@ async function main() {
     await waitClose.promise;
     if (progress.exitCode === 0) {
       process.exit(0);
-    } 
+    }
     await runWatchScript();
   }
 }

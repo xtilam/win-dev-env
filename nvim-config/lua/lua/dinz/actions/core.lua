@@ -1,4 +1,5 @@
 local dinz = require("dinz.dinz")
+local oldChoice = nil
 
 function dinz.addAction(opts)
   local name = opts.name
@@ -21,13 +22,21 @@ end
 
 function dinz.showActions()
   vim.ui.select(dinz.actionsSelects, {
-    prompt = "Actions",
+    prompt = "Actions" .. (oldChoice == nil and ":" or " (" .. dinz.actionsSelects[oldChoice] .. "):"),
     unselected = true,
   }, function(choice, choiceIdx)
-    if not choiceIdx then
+    if choiceIdx == nil then
       return
+    elseif choiceIdx == 1 then
+      if oldChoice == nil then
+        return
+      end
+      choiceIdx = oldChoice
     end
     local action = dinz.actions[choiceIdx]
+    oldChoice = choiceIdx
     action()
   end)
 end
+
+dinz.addAction({ name = "oldAction", desc = "(Default)", callback = function() end })

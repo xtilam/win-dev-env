@@ -1,7 +1,7 @@
 return {
   {
     "saghen/blink.cmp",
-    -- build = "cargo build --release",
+    build = "cargo build --release",
     event = "InsertEnter",
     opts = function(_, opts)
       return {

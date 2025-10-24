@@ -1,0 +1,5 @@
+local yazi = require("utils.yazi")
+local macro = require("utils.macro")
+vim.defer_fn(function()
+  -- macro.testStringMacro(" n")
+end, 500)

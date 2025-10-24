@@ -1,3 +1,62 @@
+local curSession = ""
+
+function newSessionFile()
+  local cc = require("CopilotChat")
+  vim.ui.input({
+    prompt = "Session Name: ",
+    default = curSession,
+  }, function(input)
+    if input and input ~= "" then
+      curSession = input
+      cc.save(input)
+      cc.open()
+    end
+  end)
+end
+
+function openSessionFiles()
+  local cc = require("CopilotChat")
+  local picker = Snacks.picker.files({
+    cwd = cc.config.history_path,
+    default = "session",
+    title = "Session Files",
+    win = {
+      input = {
+        keys = {
+          ["<del>"] = { "delete_session", mode = { "n", "i" } },
+          ["<C-n>"] = { "new_session", mode = { "n", "i" } },
+        },
+      },
+    },
+    actions = {
+      new_session = function(picker)
+        picker:action("close")
+        vim.defer_fn(newSessionFile, 0)
+      end,
+      delete_session = function(picker, item)
+        local itemPath = item._path
+        if not itemPath then
+          return
+        end
+        picker:action("close")
+        vim.fn.delete(itemPath, "rf")
+        vim.defer_fn(openSessionFiles, 0)
+      end,
+      confirm = function(picker, item)
+        if not item or not item.file then
+          return
+        end
+        local sessionFile = vim.fn.fnamemodify(item.file or "", ":r")
+        picker:action("close")
+        curSession = sessionFile
+        cc.load(sessionFile)
+        cc.open()
+      end,
+    },
+  })
+  picker:action("toggle_preview", {})
+end
+
 return {
   {
     "nvim-lualine/lualine.nvim",
@@ -49,11 +108,14 @@ return {
       local user = vim.env.USER or "User"
       user = user:sub(1, 1):upper() .. user:sub(2)
       return {
-        auto_insert_mode = true,
+        -- auto_insert_mode = true,
+        -- insert_at_end = true,
         question_header = "  " .. user .. " ",
         answer_header = "  Copilot ",
+        references_display = "write", -- 'virtual', 'write', Display references in chat as virtual text or write to buffer
+        -- headless = true,
         window = {
-          width = 0.4,
+          -- width = 0.5,
         },
       }
     end,
@@ -61,12 +123,12 @@ return {
       { "<c-s>", "<CR>", ft = "copilot-chat", desc = "Submit Prompt", remap = true },
       { "<leader>a", "", desc = "+ai", mode = { "n", "v" } },
       {
-        "<leader>aa",
+        "<C-n>",
         function()
           return require("CopilotChat").toggle()
         end,
         desc = "Toggle (CopilotChat)",
-        mode = { "n", "v" },
+        mode = { "n", "v", "i" },
       },
       {
         "<leader>ax",
@@ -98,10 +160,21 @@ return {
         desc = "Prompt Actions (CopilotChat)",
         mode = { "n", "v" },
       },
+      {
+        "<leader>as",
+        openSessionFiles,
+        mode = { "n", "v" },
+        desc = "Session Files (CopilotChat)",
+      },
+      {
+        "<leader>an",
+        newSessionFile,
+        mode = { "n", "v" },
+        desc = "Save Session (CopilotChat)",
+      },
     },
     config = function(_, opts)
       local chat = require("CopilotChat")
-
       vim.api.nvim_create_autocmd("BufEnter", {
         pattern = "copilot-chat",
         callback = function()
